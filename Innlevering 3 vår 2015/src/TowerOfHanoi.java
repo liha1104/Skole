@@ -17,6 +17,7 @@ public class TowerOfHanoi {
 
 	public static void flyttDisker(int n, char fraTårn, char påTårn,
 			char gjennomTårn) {
+		antallKall++;
 		if (n == 1) {
 			System.out.printf(
 					"Trekk nummer: %2d Flytt skiven %2d fra %c til %c\n",
