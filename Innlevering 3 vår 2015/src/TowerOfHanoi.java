@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class TowerOfHanoi {
 
 	private static Scanner input = new Scanner(System.in);
-	private static int antall = 1;
+	private static int antall = 1, antallKall = 1;;
 	
 	public static void main(String[] args) {
 		System.out.print("Skriv inn antall skiver: ");
@@ -11,6 +11,8 @@ public class TowerOfHanoi {
 
 		System.out.println("Trekkene er:");
 		flyttDisker(n, 'A', 'B', 'C');
+		
+		System.out.printf("\nAntall kall til metoden ble: %5d\n", antallKall);
 	}
 
 	public static void flyttDisker(int n, char fraTårn, char påTårn,
