@@ -15,12 +15,16 @@ public class SnuTekst1 {
 	}
 
 	public static void baklengs(String tekst) {
-		if (tekst.length() > 0) {
-			System.out.print(tekst.charAt(tekst.length() - 1));
+		baklengs(tekst, tekst.length() - 1);
+	}
+	
+	public static void baklengs(String tekst, int index) {
+		if (index >= 0) {
+			System.out.print(tekst.charAt(index));
 			antall++;
-			baklengs(tekst.substring(0, tekst.length() - 1));
+			baklengs(tekst, index - 1);
 		} else {
-			System.out.println("Det er totalt" + antall + "i tekststrengen.");
+			System.out.println("\nDet er totalt " + antall + " tegn i tekststrengen.");
 			antall = 0;
 		}
 	}
