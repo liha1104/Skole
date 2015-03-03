@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SnuTekst1 {
+public class SnuTekst {
 
 	private static Scanner in = new Scanner(System.in);
 
