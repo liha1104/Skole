@@ -13,9 +13,9 @@ public class Gjest extends Kort {
 	}
 
 	public boolean sjekkPIN(int pin) {
-		GregorianCalendar date = new GregorianCalendar();
+		GregorianCalendar dato = new GregorianCalendar();
 
-		if (utløpsDato.compareTo(date) <= 0)
+		if (utløpsDato.compareTo(dato) <= 0)
 			endreSperret();
 
 		if (!this.getSperret() && pin == 9999) {
@@ -23,5 +23,12 @@ public class Gjest extends Kort {
 
 		} else
 			return false;
+	}
+	
+	public Object clone() {
+		Gjest klone = (Gjest) super.clone();
+		klone.utløpsDato = (GregorianCalendar) this.utløpsDato.clone();
+
+		return klone;
 	}
 }

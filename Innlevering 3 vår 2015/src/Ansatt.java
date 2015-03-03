@@ -75,4 +75,11 @@ public class Ansatt extends Kort implements Fast{
 
 		return FAKTOR * årAnsatt;
 	}
+	
+	public Object clone() {
+		Ansatt klone = (Ansatt) super.clone();
+		klone.tidAnsatt = (GregorianCalendar) this.tidAnsatt.clone();
+
+		return klone;
+	}
 }

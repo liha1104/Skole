@@ -1,5 +1,5 @@
 
-public abstract class Kort {
+public abstract class Kort implements Comparable<Kort>, Cloneable{
 
 	private static int kort;
 
@@ -70,5 +70,40 @@ public abstract class Kort {
 		return String.format(
 				"Navn:\t\t%s\nPIN:\t\t%d\nKort nummer:\t%d\nEr sperret:\t%b\n",
 				getNavn(), PIN, kortNummer, sperret);
+	}
+	
+	public int compareTo(Kort c) {
+		if (c == null)
+			return -1;
+
+		if (this.getEtterNavn().compareTo(c.getEtterNavn()) < 0) {
+			return -1;
+
+		} else if (this.getEtterNavn().compareTo(c.getEtterNavn()) > 0) {
+			return 1;
+
+		} else if (this.getForNavn().compareTo(c.getForNavn()) < 0) {
+			return -1;
+
+		} else if (this.getForNavn().compareTo(c.getForNavn()) > 0) {
+			return 1;
+
+		} else
+			return 0;
+	}
+
+	public Object clone() {
+		try {
+
+			Kort klone = (Kort) super.clone();
+			klone.setForNavn(new String(this.getForNavn()));
+			klone.setEtterNavn(new String(this.getEtterNavn()));
+			return klone;
+
+		} catch (CloneNotSupportedException e) {
+
+			return null;
+
+		}
 	}
 }
