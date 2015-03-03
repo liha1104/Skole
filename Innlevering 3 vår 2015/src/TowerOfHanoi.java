@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class TowerOfHanoi {
 
 	private static Scanner input = new Scanner(System.in);
-
+	private static int antall = 1;
+	
 	public static void main(String[] args) {
 		System.out.print("Skriv inn antall skiver: ");
 		int n = input.nextInt();
@@ -16,13 +17,15 @@ public class TowerOfHanoi {
 			char gjennomTårn) {
 		if (n == 1) {
 			System.out.printf(
-					"Flytt skiven %2d fra %c til %c\n",
-					n, fraTårn, påTårn);
+					"Trekk nummer: %2d Flytt skiven %2d fra %c til %c\n",
+					antall, n, fraTårn, påTårn);
+			antall++;
 		} else {
 			flyttDisker(n - 1, fraTårn, gjennomTårn, påTårn);
 			System.out.printf(
-					"Flytt skiven %2d fra %c til %c\n",
-					n, fraTårn, påTårn);
+					"Trekk nummer: %2d Flytt skiven %2d fra %c til %c\n",
+					antall, n, fraTårn, påTårn);
+			antall++;
 			flyttDisker(n - 1, gjennomTårn, påTårn, fraTårn);
 		}
 	}
